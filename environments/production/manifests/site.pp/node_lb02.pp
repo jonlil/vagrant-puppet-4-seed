@@ -1,5 +1,6 @@
 node 'lb02' {
     class { 'base::loadbalancer':
-        is_master => false
+        keepalived_state => 'BACKUP',
+        keepalived_priority => 101,
     }
 }
