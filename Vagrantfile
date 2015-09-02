@@ -13,10 +13,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     lb01.vm.hostname = "lb01"
   end
 
+  config.vm.synced_folder = "files", "/etc/puppetlabs/puppet/files"
+
   config.vm.provision :puppet, :options => ["--debug --trace --verbose"] do |puppet|
   #config.vm.provision :puppet do |puppet|
     puppet.environment = "production"
     puppet.environment_path  = "environments"
+    puppet.options = ["--fileserverconfig=/vagrant/fileserver.conf"]
     puppet.hiera_config_path = "hiera.yaml"
   end
 end
