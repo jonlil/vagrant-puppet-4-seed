@@ -3,4 +3,3 @@ forge "https://forgeapi.puppetlabs.com"
 mod 'arioch/keepalived', '1.2.0'
 
 exclusion 'sshd'
-exclusion 'redis'
